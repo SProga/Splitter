@@ -1,0 +1,231 @@
+:root {
+  --light_blue: hsl(185, 41%, 84%);
+  --dark_cyan: hsl(183, 100%, 15%);
+  --white: hsl(0, 0%, 100%);
+  --gray-cyan: hsl(189, 41%, 97%);
+  --strong_cyan: hsl(172, 67%, 45%);
+  --grayer-cyan: hsl(186, 14%, 43%);
+  --btn_color: rgb(15, 103, 110);
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Space Mono", monospace;
+  height: 100%;
+  background-color: var(--light_blue);
+}
+
+a,
+a:visited,
+a:link {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 20px;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+.title {
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--dark_cyan);
+  letter-spacing: 5px;
+}
+
+.calculator {
+  display: flex;
+  background-color: var(--white);
+  padding: 26px;
+  justify-content: space-between;
+  margin-top: 3rem;
+  border-radius: 10px;
+  gap: 2%;
+}
+.content_left,
+.content_right {
+  flex: 0 0 46%;
+}
+
+.content_left .text_label {
+  color: var(--dark_cyan);
+  font-size: 12px;
+}
+
+.content_left .info_group {
+  position: relative;
+  margin: 15px 0;
+}
+
+.content_left .info_group .error {
+  display: none;
+  position: absolute;
+  color: rgb(255, 26, 26);
+  top: 0;
+  right: 0;
+  font-size: 10px;
+}
+
+input[type="number"],
+.input {
+  padding: 7px 0;
+  width: 100%;
+  margin-top: 4px;
+  border: none;
+  background-color: var(--gray-cyan);
+  border-radius: 4px;
+  text-align: right;
+  font-family: inherit;
+  color: var(--grayer-cyan);
+  padding-right: 10px;
+  border: 1px solid transparent;
+}
+
+input[type="number"].valid,
+input[type="number"]:focus {
+  outline: 1px solid var(--strong_cyan) !important;
+}
+input[type="number"].invalid {
+  outline: 1px solid red !important;
+}
+
+input[type="number"]::placeholder {
+  color: var(--grayer-cyan);
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input_group {
+  position: relative;
+}
+.input_label {
+  position: absolute;
+  top: 50%;
+  left: 4%;
+  transform: translateY(-36%) scale(0.7);
+  color: var(--grayer-cyan);
+}
+
+.tip_options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3%;
+}
+.tip_options button,
+.tip_options input[type="number"].input_custom {
+  flex: 0 0 31%;
+  margin: 5px 0 10px 0;
+  padding: 7px;
+  border: none;
+  border-radius: 4px;
+  font-family: inherit;
+}
+.tip_options button {
+  color: var(--white);
+  background-color: var(--dark_cyan);
+}
+
+.tip_options button:hover,
+.btn_reset:hover,
+.tip_options button.active {
+  background-color: var(--strong_cyan);
+  transition: background-color 0.4s;
+}
+
+.input_custom::placeholder {
+  text-align: center;
+  color: currentColor;
+}
+.tip_options .input_custom {
+  color: var(--dark_cyan);
+  background-color: var(--gray-cyan);
+  border: 1px solid transparent;
+  width: 100%;
+  text-align: right;
+}
+.tip_options .input_custom:hover {
+  border-color: var(--dark_cyan);
+  transition: border-color 0.2s;
+}
+
+.content_right {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--dark_cyan);
+  border-radius: 10px;
+  padding: 26px;
+}
+
+.content_right .text_label {
+  color: var(--white);
+  font-size: 14px;
+}
+.content_right .text_sublabel {
+  font-size: 12px;
+  color: var(--grayer-cyan);
+}
+.tip_amount,
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.tip_value {
+  font-size: 32px;
+  color: var(--strong_cyan);
+}
+
+.btn_reset {
+  margin-top: auto;
+  padding: 7px;
+  text-transform: uppercase;
+  font-family: inherit;
+  background-color: var(--btn_color);
+  border: none;
+  color: var(--dark_cyan);
+  letter-spacing: 1px;
+}
+
+@media only screen and (max-width: 694px) {
+  .calculator {
+    flex-direction: column;
+  }
+
+  .container {
+    max-width: 400px;
+  }
+}
