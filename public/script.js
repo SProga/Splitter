@@ -107,13 +107,13 @@
   }
   function init() {
     $input_bill.addEventListener("change", function (e) {
-      validateInput(this);
-      updateTotal(this.value, tip.total_people);
-      updateTip(tip.tip_ratio);
+      if (validateInput(this)) {
+        updateTotal(this.value, tip.total_people);
+        updateTip(tip.tip_ratio);
+      }
     });
 
     $input_people.addEventListener("change", function (e) {
-      console.log(tip.tip_ratio, tip.default_bill, this.value);
       if (validateInput(this)) {
         updateTotal(tip.default_bill, this.value);
         updateTip(tip.tip_ratio);
